@@ -1,6 +1,7 @@
 const dino = document.querySelector('.dino');
 const background = document.querySelector('.background');
 let isJumping = false;
+let position = 0;
 
 const handleKeyUp =  function(event) {
     if (event.keyCode === 32) {
@@ -13,7 +14,6 @@ const handleKeyUp =  function(event) {
 
 // faz o dino pular
  function jump() {
-    let position = 0;
     isJumping = true;
 
     let upInterval = setInterval(() => {
@@ -46,6 +46,7 @@ const handleKeyUp =  function(event) {
 function createCactus() {
     const cactus = document.createElement('div');
     cactusPosition = 1000;
+    let randomTime = Math.random() * 6000;
 
     cactus.classList.add('cactus');
     cactus.style.left = cactusPosition + 'px';
@@ -65,7 +66,7 @@ function createCactus() {
             cactus.style.left = cactusPosition + 'px';
         }
     },20);
-
+    setTimeout(createCactus, randomTime);
 }
 
 createCactus();
