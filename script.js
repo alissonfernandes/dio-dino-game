@@ -1,15 +1,20 @@
 const dino = document.querySelector('.dino');
+let isJumping = false;
 
 const handleKeyUp =  function(event) {
     if (event.keyCode === 32) {
         console.log('Pressionou espaço');
-        jump();
+        if (!isJumping) {
+            jump();
+        }
     }
 }
 
 // faz o dino pular
  function jump() {
     let position = 0;
+    isJumping = true;
+
     let upInterval = setInterval(() => {
 
         if (position >= 150) { 
@@ -20,6 +25,7 @@ const handleKeyUp =  function(event) {
             let dowInterval = setInterval(() => {
                 if (position <= 0) {
                     clearInterval(dowInterval);
+                    isJumping = false;
                 } else {
                     position -= 20;
                     dino.style.bottom = position + 'px';
