@@ -59,6 +59,11 @@ function createCactus() {
             // faz cacto desaparecer
             clearInterval(leftInterval);
             background.removeChild('cactus');
+        } else if (cactusPosition > 0 && cactusPosition < 60 && position < 60) {
+
+            // game over
+            clearInterval(leftInterval);
+            document.body.innerHTML = '<h1 class="game-over">Fim de jogo</h1>';
         } else {
 
             // faz cacto se mover
